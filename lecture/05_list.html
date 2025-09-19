@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>목록 관련된 스타일 </title>
+</head>
+<body>
+
+<style>
+  #list1 {
+    /* 블릿 기호*/ list-style-type: square;
+    /* 블릿 이미지 기호 */ list-style-image: url(('../assets/imgaes/icon.png'));
+
+  }
+  #list2 {
+    list-style-type: decimal-leading-zero;
+    list-style-type: upper-alpha;
+    list-style-type: lower-roman;
+    /* 들여 쓰기*/ list-style-position: inside;
+  }
+</style>
+
+  <ul id="list1">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>React</li>
+  </ul>
+
+<ol id="list2">
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>React</li>
+</ol>
+
+</body>
+</html>

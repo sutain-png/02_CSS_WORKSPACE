@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--
+    ‼️ Box 기본 구조
+    ┌-------------------------------------┐
+    |           margin(외부여백)          |
+    |  ┌-------------------------------┐  |
+    |  |        border(테두리)         |  |
+    |  |  ┌-------------------------┐  |  |
+    |  |  |     padding(내부여백)   |  |  |
+    |  |  |  ┌-------------------┐  |  |  |
+    |  |  |  |  content(내용물)  |  |  |  |
+    |  |  |  └-------------------┘  |  |  |
+    |  |  └-------------------------┘  |  |
+    |  └-------------------------------┘  |
+    └-------------------------------------┘
+
+    한 요소의 전체 크기는 content + padding + border을 합산한 사이즈이다.
+
+    📌 CSS 박스 모델 관련 스타일 속성
+    1. width, height
+      1) 콘텐츠의 너비와 높이를 지정하는 속성입니다.
+      2) px, % 등의 단위를 사용합니다. (%는 부모 요소의 크기를 기준으로)
+      3) 인라인 요소는 크기를 지정할 수 없습니다.
+    2. border
+      1) 테두리의 두께, 종류, 색상을 지정하는 속성입니다.
+      2) 테두리의 두께는 기본적으로 box 크기에 영향을 미칩니다.
+      4) 종류 : solid, dotted, dashed, double, groove, ridge, inset, outset 등
+    3. padding
+      1) 콘텐츠와 테두리 사이의 내부 여백을 지정하는 속성입니다.
+      2) px, % 등의 단위를 사용합니다.
+      3) 내부 여백은 기본적으로 box 크기에 영향을 미칩니다.
+    4. margin
+      1) 테두리 바깥쪽 여백을 지정하는 속성입니다.
+      2) 타 요소간의 간격을 띄우고자할 때 주로 사용
+      3) 외부 여백은 기본적으로 box 크기에 영향을 미치지 않습니다.
+    5. box-sizing
+      1) 요소의 크기 계산 방식을 지정하는 속성입니다.
+      2) content-box, padding-box, border-box 등의 값을 사용합니다.
+  -->
+  
+  <!-- 
+    * border (테두리) 관련 스타일
+    1) border[-위치]-width  : 테두리 두께
+    2) border[-위치]-style  : 테두리 종류
+    3) border[-위치]-color  : 테두리 색상
+    4) border[-상하위치][-좌우위치]-radius : 테두리 모서리
+    5) border[-위치] : 테두리 두께, 종류, 색상을 한꺼번에 지정 (단축속성)
+  -->
+  <style>
+    .wrap1 > * {
+      background-color: pink;
+    }
+
+    .wrap1 > div {
+      width: 100px;
+      height: 100px;
+      }    
+
+  </style>
+  
+  <div class="wrap1">
+    <div>블럭 요소</div>
+    <br>
+    <span>인라인 요소</span>
+  </div>
+
+  <hr>
+
+
+  <style>
+    .wrap2>div{
+      width: 100px;
+      height: 100px;
+      background-color: lightgray;
+      margin-bottom: 10px;
+    }
+    .wrap2>.box1 {
+      border-style: solid;
+      border-width: 5px;
+      border-color: red;
+      border-radius: 12px;
+    }
+    .wrap2>.box2 {
+      border-style:solid dashed; /* 상 하 좌 우 */
+      border-style: dotted solid dashed;
+      border-style: solid dashed dotted double;
+      border-radius: 8px 20px 12px 0px;
+    }
+
+    .wrap2>.box3 {
+      border-top-style: solid;
+      border-bottom-style: dashed;
+      border-top-width: 10px;
+      border-top-left-radius: 20px;
+    }
+
+    .wrap2>.box4 {
+      border: 1px solid black;
+      box-shadow: 5px 5px 5px 10px yellow; /* 가로 거리 세로 거리 흐림정도 번짐 정도 색*/
+    }
+  </style>
+  <div class="wrap2">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+  </div>
+
+  <button style="border: none;">로그인</button>
+
+  <hr>
+
+  <!-- 
+    * padding (내부여백) 관련 스타일
+    padding[-위치] : 안쪽 여백으로 지정할 값
+  -->
+
+  <style>
+    .wrap3>div {
+      width:100px;
+      height:100px;
+      border: 10px solid gray;
+      margin-bottom: 10px;
+    }
+
+    .wrap3>.box1 {
+      padding-top: 5px;
+      padding-left: 20px;
+      padding-right: 30px;
+      padding-bottom: 15px
+    }
+
+    .wrap3>.box2 {
+      padding: 10px;
+
+
+    }
+
+    .wrap3>.box3 {
+      padding: 10px 20px;
+      padding: 5px 10px 15px 20px;
+    }
+  </style>
+
+
+  <div class="wrap3">
+    <div class="box1">box*1</div>
+    <div class="box2">box*2</div>
+    <div class="box3">box*3</div>
+  </div>
+
+  <hr>
+
+  <!-- 
+    * box-sizing (크기 계산 방식) 관련 스타일
+    1) box-sizing:content-box;
+        → 기본값
+        → width와 height가 콘텐츠(content)까지의 범위를 의미
+        → box 크기 = width/height + padding + border
+    2) box-sizing:padding-box;
+        → width와 height가 내부여백(padding)까지의 범위를 의미
+        → box 크기 = width/height + border
+    3) box-sizing:border-box;
+        → width와 height가 테두리(border)까지의 범위를 의미
+        → box 크기 = width/height
+  -->
+  
+  <style>
+    .wrap4>.box1 {
+      width: 100px;
+      height: 100px;
+      box-sizing : border-box;
+      border: 10px solid gray;
+      padding: 10px;
+    }
+  </style>
+
+
+  <div class="wrap4">
+    <div class="box1">box1</div>
+  </div>
+
+
+
+  <!-- 
+      * margin (외부 여백) 관련 스타일
+      1) 테두리 바깥쪽 공간을 의미하며 box 사이즈와는 상관없음
+      2) 타 요소간의 간격을 띄우고자할 때 주로 사용
+      3) 주요 스타일 속성
+          → margin[-위치] : 외부 여백으로 지정할 값
+  -->
+  <hr>
+
+  <style>
+    .wrap5 {
+      1px solid black
+    }
+    .wrap5>div {
+      border:1px solid gray;
+      width: 100px;
+      height: 100px;
+      box-sizing : border-box;
+
+    }
+
+
+    .wrap5>.box1 {
+      margin-top:30px;
+      margin-left:10px;
+      margin-right:100px;
+    }
+
+    .wrap5>.box2 {
+      margin:50px;
+      margin:10px 30px;
+    }
+
+    .wrap5>.box3 {
+      margin: 20px auto;
+
+    }
+
+  </style>
+
+  <div class="wrap5">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+
+
+  <style>
+    .overflow-test{
+      width: 200px;
+      height: 200px;
+      border: 1px solid gray;
+      overflow: scroll;
+    }
+  </style>
+<div class="overflow-test">치관과 세계관을 형성했다면, 현대 사회에서는 브랜드가 그 자리를 강탈했다. 애플의 신제품 출시 행사는 현대판 종교 의식이다. 신도들은 기꺼이 밤새 줄을 서고, 수십만 원을 지불해 '구원'을 구매한다. 럭셔리 브랜드의 패션쇼는 21세기의 성당이며, 그곳에서 신자들은 소비라는 성찬식을 거행한다.</div>
+<hr>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
