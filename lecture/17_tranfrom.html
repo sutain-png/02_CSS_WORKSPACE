@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+  📌 CSS Transform style
+  1. 요소를 회전, 크기 조절, 기울임 등의 변환을 적용할 수 있는 속성입니다.
+  2. 형식: transform: 변환 함수;
+  3. 변환 함수 종류 
+    1) translateX(x), translateY(y),translate(x, y) : 요소를 x축, y축으로 이동
+    2) rotateX(angle), rotateY(angle), rotate(angle) : 요소를 특정 각도로 회전
+    3) scaleX(x), scaleY(y), scale(x, y) : 요소를 x축, y축 방향으로 확대 및 축소
+    4) skewX(x-angle), skewY(y-angle), skew(x-angle, y-angle) : 요소를 x축, y축 방향으로 뒤틀기
+-->
+
+
+<style>
+* {box-sizing: border-bos;}
+.container{
+  width: 400px;
+  height: 500px;
+  border: 1px solid #aaa;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.item {
+  border: 5px solid black;
+  background-color: purple;
+}
+
+.item1:hover {
+  transform: translateX(-10px);
+}
+
+.item2:hover {
+  transform: translateY(-10px);
+}
+
+.item3:hover {
+  transform: rotateX(45deg);
+}
+
+.item4:hover {
+  transform: rotateX(45deg);
+}
+
+.item5:hover {
+  transform: rotateY(45deg);
+} 
+
+.item6:hover {
+  transform: skew(45deg);
+}
+</style>
+<div class="container">
+  <div class="item item1">item1</div>
+  <div class="item item2">item2</div>
+  <div class="item item3">item3</div>
+  <div class="item item4">item4</div>
+  <div class="item item5">item5</div>
+  <div class="item item6">item6</div>
+  <div class="item item7">item7</div>
+  <div class="item item8">item8</div>
+  <div class="item item9">item9</div>
+  <div class="item item10">item10</div>
+  <div class="item item11">item11</div>
+  <div class="item item12">item12</div>
+</div>
+
+<hr>
+<style>
+  .turn-table {
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    border-radius:50%;
+    text-align: center;
+    line-height: 200px;
+    font-weight:bold;
+    font-size: 32px;
+    margin: 50px auto;
+    cursor: pointer;
+    transition-property: background-color transform;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+  }
+
+  .turn-table:active {
+    background-color: rgb(9, 255, 239);
+    transform: rotate(3600deg);
+  }
+</style>
+<div class="turn-table">회전판</div>
+
+<!-- 
+  * transition
+  1) 이행(움직임 과정) 스타일 속성 
+  2) 움직임 과정을 부드럽게 표현할 수 있음
+  3) 관련 속성
+      - transition-property: 이행 과정을 표현할 CSS 속성 이름
+      - transition-duration: 이행 과정을 표현할 시간(ms)
+      - transition-timing-function: 이행 과정이 동작하는 방식 
+-->
+
+<hr>
+
+<style>
+  .img-container {
+    width: 192px;
+    height: 128px;
+    background-image: url('../assets/images/city2.jpg');
+    background-size: 192px ;
+
+  }
+
+  .screen {
+    width: 192px;
+    height: 128px;
+    background-color: rgba(255, 0, 0, 0.668);
+    font-size: 32px;
+    text-align: center;
+    line-height: 128px;
+    color: white;
+    opacity: 0;
+
+    
+  }
+.img-container:hover+.screen{
+opacity:1;
+transform: translateY(-128px);
+}
+
+.screen{
+  transition: opacity 1s, transform 1s;
+}
+
+</style>
+
+<div class="img-container"></div>
+<div class="screen">도쿄타워</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

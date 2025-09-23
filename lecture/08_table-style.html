@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #user-list {
+      
+      border-spacing: 0px; /*셀 간격*/
+      border-collapse: collapse; /* 셀 간격 분리 여부*/
+
+    }
+
+    #user-list td{
+      border-bottom: 1px solid lightgray;
+      text-align: center
+
+    }
+
+    #user-list td:first-of-type {
+      width: 80px;
+      
+    }
+
+    #user-list td:nth-of-type(2) {
+      width:200px
+    }
+
+    #user-list td:last-of-type {
+      width: 100px;
+    }
+
+    #user-list>tbody td {
+      height:50px
+    }
+
+
+    #user-list>thead td,
+    #user-list>tfoot td {
+      font-weight: 900;
+      padding: 10px
+    }
+
+    #user-list>tbody>tr:hover {
+      background-color: lightgray;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  
+
+
+  <table id="user-list">
+    <thead>
+      <tr>
+        <td>회원번호</td>
+        <td>회원명</td>
+        <td>포인트</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>고길동</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>고사리</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>고라니</td>
+        <td>300</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">포인트합계</td>
+        <td>600</td>
+      </tr>
+    </tfoot>
+  </table>
+
+
+
+
+
+</body>
+</html>

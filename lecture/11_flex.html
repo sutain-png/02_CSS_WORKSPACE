@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {box-sizing: border-box; }
+    body, *{margin: 0px}
+
+    .app { 
+      width : 100vw;
+      min-height: 100vh; 
+      display: flex;
+      flex-direction: column;
+    }
+    .header, .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 16px; 
+    }
+
+    .content { 
+      flex: 1;
+      background-color:  #fafefa;
+      display: flex;
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .nav{
+      width: 200px;
+      padding :12px;
+      background-color: #f9fafb;
+    }
+
+    .aside {
+      width: 200px;
+      padding : 12px;
+      background-color:  #f9fafb;
+    }
+
+    .main {
+      flex:1;
+      padding: 16px;
+      background-color:#ffffff;
+    }
+
+    .box {
+      background-color:rgb(249, 255, 255);
+      border: 1px, dashed rgb(222, 255, 255);
+      margin: 12px, 0px;
+      padding: 12px;
+    }
+
+    .nav ul {
+      padding-left: 20px;
+      margin-top:8px;
+
+    }
+
+    .aside p {
+      margin-top: 8px;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <div class="header">
+      머리부
+    </div>
+
+    <div class="content">
+
+      <div class="nav">
+        <strong>
+          네비게이션
+        </strong>
+        <ul>
+          <li>홈</li>
+          <li>어바웃</li>
+          <li>연락처</li>
+        </ul>
+      </div>
+
+      <div class="main">
+        <h1>메인 콘텐츠</h1>
+        <div class="box"> 영 옆은 고정폭, 가운데는 가변폭! </div>
+        힌트 가운데 영역은 <code>flex:1</code>로 남는 공간을 차지합니다.
+      </div>
+
+      <div class="aside">
+        <strong>사이드바</strong>
+        <p>
+          공지/광고/프로필
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="footer">
+      푸터
+    </div>
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
